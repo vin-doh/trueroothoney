@@ -1702,20 +1702,102 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .banner-area {
-  background: url(../images/header-bg.jpg) center;
-  background-size: cover;
+  position: relative;
+  overflow: hidden;
 }
 
-@media (max-width: 1199.98px) {
-  .banner-area .fullscreen {
-    height: 920px !important;
+.slider {
+  position: relative;
+  z-index: 1;
+}
+
+.slider-item {
+  height: 100vh;
+  min-height: 700px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.slider-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+/* Owl Carousel Navigation */
+.owl-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 2;
+}
+
+.owl-prev, .owl-next {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  line-height: 50px !important;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.owl-prev:hover, .owl-next:hover {
+  background: rgba(182, 136, 52, 0.8) !important;
+}
+
+/* Owl Carousel Dots */
+.owl-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+.owl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5) !important;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.owl-dot.active {
+  background: #b68834 !important;
+  width: 30px;
+  border-radius: 15px;
+}
+
+@media (max-width: 991.98px) {
+  .slider-item {
+    min-height: 600px;
   }
 }
 
 @media (max-width: 768px) {
-  .banner-area {
-    background: url(../images/header-bg.jpg);
-    background-position: 50% 90% 50% 50%;
+  .slider-item {
+    min-height: 500px;
+    background-position: 70% center;
+  }
+  
+  .owl-nav {
+    display: none;
   }
 }
 

@@ -264,8 +264,34 @@ $(document).ready(function(){
     }
 
 
-        $(document).ready(function() {
-            $('#mc_embed_signup').find('form').ajaxChimp();
+        // Initialize Owl Carousel Slider
+    if ($('.slider').length > 0) {
+        $('.slider').owlCarousel({
+            loop: true,
+            margin: 0,
+            items: 1,
+            dots: true,
+            nav: true,
+            navText: ['<span class="lnr lnr-chevron-left"></span>', '<span class="lnr lnr-chevron-right"></span>'],
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            smartSpeed: 1000,
+            animateIn: 'fadeIn',
+            animateOut: 'fadeOut',
+            responsive: {
+                0: {
+                    nav: false
+                },
+                768: {
+                    nav: true
+                }
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        $('#mc_embed_signup').find('form').ajaxChimp();
         });      
 
 

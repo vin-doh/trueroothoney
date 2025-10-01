@@ -289,16 +289,30 @@ $(document).ready(function(){
             }
         });
     }
-
     $(document).ready(function() {
         $('#mc_embed_signup').find('form').ajaxChimp();
         });      
 
-
-
-
-
-
-
+    // Mobile Top Bar Functionality
+    $(document).ready(function() {
+        // Show mobile top bar on mobile devices after page load
+        if ($(window).width() <= 960) {
+            setTimeout(function() {
+                $('#mobile-top-bar').addClass('show');
+            }, 1000); // Show after 1 second
+        }
+        
+        // Toggle mobile top bar
+        $('#mobile-top-toggle').on('click', function() {
+            $('#mobile-top-bar').removeClass('show');
+        });
+        
+        // Handle window resize
+        $(window).resize(function() {
+            if ($(window).width() > 960) {
+                $('#mobile-top-bar').removeClass('show');
+            }
+        });
+    });
 
  });
